@@ -31,7 +31,7 @@ Features (completed)
     - Example text is removed when the textbox is focused
     - Example text is returned if the field is left blank
 - User Input Validation
-    - Reject the user's entry if any fields are outside of the range of characters allowed in the database
+    - Reject the user's entry if any fields are outside of the range of characters allowed within the database
     - Only allow null values for address line 2 and phone extension
     - Real-time rejection on non-numeric input for phone number, zip code, birthdate
     - Real-time formatting for phone number (adds and removes "-" when necessary)
