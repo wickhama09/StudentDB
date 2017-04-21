@@ -52,7 +52,7 @@ Features (completed)
 - View/Add Courses to a Student
     - List available courses, and allow to filter by subject
 - Add grades to completed courses
-- Calculate GPA from grades
+- Calculate GPA from course grades
 
 
 
