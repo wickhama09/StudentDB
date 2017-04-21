@@ -63,17 +63,15 @@ Code
 ---
 
 You can view the code I wrote for this application 
-[here](https://github.com/wickhama09/TicTacUltimate/blob/master/TicTacToe_Anthony_Wickham/frmTTT.vb).  
+[here](https://github.com/wickhama09/StudentDB/blob/master/StudentDB/frmMain.cs).  
 
 
 Thoughts
 ---
 
-This game was my one of my first experiences with Visual Studio. It taught me a lot
-about event-driven programming and interface design. I pushed myself to add several layers of logic into this 
-program. This was significant in my learning process because it opened
-my eyes to the sheer complexity that can be involved with programming even the smallest things.
-
+I chose to develop this application because I am graduating this year and will be pursuing a career in programming. Realizing that database programming is an essential skill for any business, I wanted to expand my knowledge. I also wanted to challenge myself to learn
+a new language, C#. With plenty of practice with C++ and Visual Basic, learning C# has been a lot easier than anticipated! Through this 
+process I have reinforced my knowledge on relational data and how to implement it correctly in a programming environment.
 
 
 
@@ -84,5 +82,5 @@ my eyes to the sheer complexity that can be involved with programming even the s
 Author
 ---
 
-This Visual Basic project was created by Anthony Wickham. The project was completed on March 27, 2016.
+This Visual Basic project was created by Anthony Wickham. The project is still in development as of April 20, 2017.
 
