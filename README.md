@@ -29,7 +29,7 @@ Features (completed)
     - StudentCourse
 - Event-driven textboxes
     - Example text is removed/returned to/from each textbox when necessary
-    - Real-Time string formatting for phone number
+    - Real-time string formatting for phone number
     - Instant rejection of non-numeric input for phone number, zip code, birthdate
 - Additional User Input Validation
     - Reject the user's entry if any fields are outside of the range of characters allowed within the database
