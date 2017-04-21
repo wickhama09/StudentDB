@@ -70,7 +70,7 @@ Thoughts
 ---
 
 I chose to develop this application because I am graduating this year and will be pursuing a career in programming. Realizing that database programming is an essential skill for any business, I wanted to expand my knowledge. I also wanted to challenge myself to learn
-a new language, C#. With plenty of practice with C++ and Visual Basic, learning C# has been a lot easier than anticipated! Through this 
+a new language. With plenty of practice with C++ and Visual Basic, learning C# has been a lot easier than anticipated! Through this 
 process I have reinforced my knowledge on relational data and how to implement it correctly in a programming environment.
 
 
