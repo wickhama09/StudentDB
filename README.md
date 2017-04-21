@@ -27,16 +27,14 @@ Features (completed)
     - Course
     - Subject
     - StudentCourse
-- Event-driven examples in textboxes
-    - Example text is removed when the textbox is focused
-    - Example text is returned if the field is left blank
-- User Input Validation
+- Event-driven textboxes
+    - Example text is removed/returned to/from each textbox when necessary
+    - Real-Time string formatting for phone number
+    - Instant rejection of non-numeric input for phone number, zip code, birthdate
+- Additional User Input Validation
     - Reject the user's entry if any fields are outside of the range of characters allowed within the database
-    - Only allow null values for address line 2 and phone extension
-    - Real-time rejection on non-numeric input for phone number, zip code, birthdate
-    - Real-time formatting for phone number (adds and removes "-" when necessary)
-    - Reject a Day selection of "31" for months that do not contain 31 days
-    - Reject a date selection of Feb. 29 if it is not a leap year
+    - Check for null values and handle them accordingly
+    - Reject impossible date selection (including support for leap years)
     - Generate a realistic range of drop-down options for birthdate based on the current year
     
     
