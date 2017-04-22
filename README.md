@@ -1,7 +1,7 @@
 StudentDB
 ===
 
-StudentDB is a Windows application I am developing that stores and retrieves student information using a service-based SQL database.
+StudentDB is a Windows application I am developing that stores and retrieves student information using a local MSSQL database.
 When this project is completed the user will be able to add/edit student information as well as add/view registered courses for each student.
 Each student's GPA will be calculated by the grades received in their registered courses.
 
