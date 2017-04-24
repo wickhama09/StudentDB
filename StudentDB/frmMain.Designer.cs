@@ -504,6 +504,7 @@
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.grpResults);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentDB";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpResults.ResumeLayout(false);
