@@ -79,5 +79,5 @@ process I have reinforced my knowledge on relational data and how to implement i
 Author
 ---
 
-This Visual Basic project was created by Anthony Wickham. The project is still in development as of April 20, 2017.
+This Visual C# project was created by Anthony Wickham. The project is still in development as of April 20, 2017.
 
