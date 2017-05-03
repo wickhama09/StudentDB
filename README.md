@@ -16,7 +16,7 @@ Adding a student:
 Features (completed)
 ---
 
-- Storing & Retrieving Information 
+- Storing, Editing, & Retrieving Information 
     - ID #
     - Name
     - Address
@@ -35,6 +35,7 @@ Features (completed)
     - Reject the user's entry if any fields are outside of the range of characters allowed within the database
     - Check for null values and handle them accordingly
     - Reject impossible date selection (including support for leap years)
+    - Confirmation boxes before any database queries that would add/change information
     - Generate a realistic range of drop-down options for birthdate based on the current year
     
     
@@ -44,8 +45,6 @@ Features (completed)
  
  - User Input Validation
     - Real-time rejection of numeric input for state combo box
-    - Confirmation message before querying an add/edit to the database
-- Editing Information
 - Search for student by ID
 - View/Add Courses to a Student
     - List available courses, and allow to filter by subject
@@ -80,5 +79,5 @@ process I have reinforced my knowledge on relational data and how to implement i
 Author
 ---
 
-This Visual Basic project was created by Anthony Wickham. The project is still in development as of April 20, 2017.
+This Visual C# project was created by Anthony Wickham. The project is still in development as of April 20, 2017.
 
