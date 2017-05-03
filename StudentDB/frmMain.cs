@@ -329,6 +329,7 @@ namespace StudentDB
             // Create a frmCourse instance and show it with the currently selected Student Information
             frmCourse frmStudentCourse = new frmCourse(this, lblId.Text, lstStudents.Text, lblGpa.Text);
             lstStudents.ClearSelected();
+            disableFrmEntry();
             Hide();
             frmStudentCourse.Show();
         }
@@ -1003,7 +1004,6 @@ namespace StudentDB
                 lstStudents.DisplayMember = "Name";
                 lstStudents.ValueMember = "Id";
                 lstStudents.DataSource = studentTable;
-
             }
         }
 

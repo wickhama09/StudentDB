@@ -80,7 +80,7 @@ namespace StudentDB
             lstCourse.Focus();
         }
 
-        
+
         /* This event focuses btnSaveCourse when a term is selected */
         private void cbTerm_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -239,61 +239,38 @@ namespace StudentDB
 
                         connection.Open();
                         command.ExecuteNonQuery();
-
-                        // Configure and refresh view objects
-                        populateRegisteredCourses();
-                        grpBlank.Show();
-                        grpGrade.Hide();
-                        btnAddCourse.Enabled = true;
                     }
-                }
 
-                catch (SqlException sqlEx)
-                {
-                    MessageBox.Show("Could not connect to Records Database! " + sqlEx.Message);
-                    connection.Close();
-                    return;
-                }
-
-                catch (NoNullAllowedException nnaEx)
-                {
-                    MessageBox.Show("Null value exception! " + nnaEx);
-                    connection.Close();
-                    return;
-                }
-
-                // Retrieve grades and calculate a new GPA
-                using (connection = new SqlConnection(connectionString))
-                using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT StudentCourse.GradeValue, StudentCourse.Grade, Course.Hours FROM StudentCourse INNER JOIN Course ON Course.Id = StudentCourse.CourseId WHERE StudentId = @StudentId", connection))
-                {
-                    // NOTE: A SqlDataAdapter will call connection.open() automatically
-
-                    adapter.SelectCommand.Parameters.AddWithValue("@StudentId", studentId);
-
-                    // Create a reference to query results
-                    DataTable gpaTable = new DataTable();
-                    adapter.Fill(gpaTable);
-
-                    float gradeHrs;
-                    float gradeVal;
-                    float gradeHrsCnt = 0;
-                    float gradePoints = 0;
-
-                    foreach (DataRow row in gpaTable.Rows)
+                    // Retrieve grades and calculate a new GPA
+                    using (connection = new SqlConnection(connectionString))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT StudentCourse.GradeValue, StudentCourse.Grade, Course.Hours FROM StudentCourse INNER JOIN Course ON Course.Id = StudentCourse.CourseId WHERE StudentId = @StudentId", connection))
                     {
-                        if (row["GradeValue"] != DBNull.Value && (string)row["Grade"] != "W") // A grade of W will not be included in GPA calculation
+                        // NOTE: A SqlDataAdapter will call connection.open() automatically
+
+                        adapter.SelectCommand.Parameters.AddWithValue("@StudentId", studentId);
+
+                        // Create a reference to query results
+                        DataTable gpaTable = new DataTable();
+                        adapter.Fill(gpaTable);
+
+                        float gradeHrs;
+                        float gradeVal;
+                        float gradeHrsCnt = 0;
+                        float gradePoints = 0;
+
+                        foreach (DataRow row in gpaTable.Rows)
                         {
-                            gradeVal = Convert.ToSingle(row["GradeValue"]);
-                            gradeHrs = Convert.ToSingle(row["Hours"]);
-                            gradePoints += (gradeVal * gradeHrs);
-                            gradeHrsCnt += gradeHrs;
+                            if (row["GradeValue"] != DBNull.Value && (string)row["Grade"] != "W") // A grade of W will not be included in GPA calculation
+                            {
+                                gradeVal = Convert.ToSingle(row["GradeValue"]);
+                                gradeHrs = Convert.ToSingle(row["Hours"]);
+                                gradePoints += (gradeVal * gradeHrs);
+                                gradeHrsCnt += gradeHrs;
+                            }
                         }
-                    }
 
-                    float gpa = (gradePoints / Convert.ToSingle(gradeHrsCnt));
+                        float gpa = (gradePoints / Convert.ToSingle(gradeHrsCnt));
 
-                    try
-                    {
                         // Update datbase with new GPA
                         using (connection = new SqlConnection(connectionString))
                         using (SqlCommand command = new SqlCommand("UPDATE Student SET Gpa = @Gpa" +
@@ -313,21 +290,21 @@ namespace StudentDB
                             btnAddCourse.Enabled = true;
                         }
                     }
+                }
 
-                    catch (SqlException sqlEx)
-                    {
-                        MessageBox.Show("Could not connect to Records Database! " + sqlEx.Message);
-                        connection.Close();
-                        return;
-                    }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("Could not connect to Records Database! " + sqlEx.Message);
+                    connection.Close();
+                    return;
+                }
 
-                    catch (NoNullAllowedException nnaEx)
-                    {
-                        MessageBox.Show("Null value exception! " + nnaEx);
-                        connection.Close();
-                        return;
-                    }
-                }                
+                catch (NoNullAllowedException nnaEx)
+                {
+                    MessageBox.Show("Null value exception! " + nnaEx);
+                    connection.Close();
+                    return;
+                }
             }
         }
 
