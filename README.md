@@ -16,40 +16,44 @@ Adding a student:
 Features (completed)
 ---
 
+- Search For Students by ID #
 - Storing, Editing, & Retrieving Information 
     - ID #
     - Name
     - Address
     - Birthdate
     - Phone
+- Storing & Retrieving Information
+    - Courses
+    - Grades
 - Relational Data Tables
     - Student
     - Course
     - Subject
     - StudentCourse
-- Event-driven textboxes
+- Event-Driven Textboxes
     - Example text is removed/returned to/from each textbox when necessary
     - Real-time string formatting for phone number
     - Instant rejection of non-numeric input for phone number, zip code, birthdate
+    - Instant rejection of numeric input for state combo box
 - Additional User Input Validation
     - Reject the user's entry if any fields are outside of the range of characters allowed within the database
     - Check for null values and handle them accordingly
     - Reject impossible date selection (including support for leap years)
     - Confirmation boxes before any database queries that would add/change information
-    - Generate a realistic range of drop-down options for birthdate based on the current year
+    - Generate a realistic range of drop-down options for birthdate and term based on the current year
     
     
         
  Features (in development)
  ---
  
- - User Input Validation
-    - Real-time rejection of numeric input for state combo box
-- Search for student by ID
-- View/Add Courses to a Student
-    - List available courses, and allow to filter by subject
-- Add grades to completed courses
-- Calculate GPA from course grades
+- Removing & Editing Data
+  - Courses
+  - Grades
+
+
+
 
 
 
