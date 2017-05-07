@@ -77,7 +77,6 @@
             this.lstStudents.Location = new System.Drawing.Point(58, 122);
             this.lstStudents.Name = "lstStudents";
             this.lstStudents.Size = new System.Drawing.Size(195, 303);
-            this.lstStudents.Sorted = true;
             this.lstStudents.TabIndex = 1;
             this.lstStudents.SelectedIndexChanged += new System.EventHandler(this.lstStudents_SelectedIndexChanged);
             // 

@@ -114,7 +114,7 @@ namespace StudentDB
         private void btnBack_Click(object sender, EventArgs e)
         {
             frmOrigin.Show();
-            Close();
+            Hide();
         }
 
 
@@ -159,6 +159,12 @@ namespace StudentDB
             populateCourses(Convert.ToInt32(cbSubject.SelectedValue));
             populateTerm();
             gridCourse.ClearSelection();
+        }
+
+        /* This event ensures all forms are closed */
+        private void frmCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmOrigin.Close();
         }
 
 
@@ -213,7 +219,8 @@ namespace StudentDB
         }
 
 
-        /* This event adds a grade to table StudentCourse, also calculates and updates GPA in table Student */
+        /* This event adds a grade to table StudentCourse, also calculates and updates 
+                GPA in table Student                                                */
         private void btnAddSelectedGrade_Click(object sender, EventArgs e)
         {
             DialogResult confirmation = MessageBox.Show("Please confirm your entry.\n\n" +
@@ -221,7 +228,8 @@ namespace StudentDB
                     "\nCourse:\t" + (string)gridCourse.SelectedRows[0].Cells["Name"].Value +
                     "\nTerm:\t" + (string)gridCourse.SelectedRows[0].Cells["Term"].Value
 
-                    , "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    , "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, 
+                        MessageBoxDefaultButton.Button2);
 
             if (confirmation == DialogResult.OK)
             {
@@ -230,7 +238,8 @@ namespace StudentDB
                     int id = (int)gridCourse.SelectedRows[0].Cells["Id"].Value;
 
                     using (connection = new SqlConnection(connectionString))
-                    using (SqlCommand command = new SqlCommand("UPDATE StudentCourse SET Grade = @Grade, GradeValue = @GradeValue " +
+                    using (SqlCommand command = new SqlCommand("UPDATE StudentCourse " +
+                        "SET Grade = @Grade, GradeValue = @GradeValue " +
                         " WHERE Id = @StudentCourseId", connection))
                     {
                         command.Parameters.AddWithValue("@GradeValue", gradeVals[cbGrade.Text]);
@@ -243,7 +252,10 @@ namespace StudentDB
 
                     // Retrieve grades and calculate a new GPA
                     using (connection = new SqlConnection(connectionString))
-                    using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT StudentCourse.GradeValue, StudentCourse.Grade, Course.Hours FROM StudentCourse INNER JOIN Course ON Course.Id = StudentCourse.CourseId WHERE StudentId = @StudentId", connection))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT StudentCourse.GradeValue," +
+                        " StudentCourse.Grade, Course.Hours FROM StudentCourse INNER JOIN Course " +
+                        "ON Course.Id = StudentCourse.CourseId " +
+                        "WHERE StudentId = @StudentId", connection))
                     {
                         // NOTE: A SqlDataAdapter will call connection.open() automatically
 
@@ -260,7 +272,8 @@ namespace StudentDB
 
                         foreach (DataRow row in gpaTable.Rows)
                         {
-                            if (row["GradeValue"] != DBNull.Value && (string)row["Grade"] != "W") // A grade of W will not be included in GPA calculation
+                            // A grade of W will not be included in GPA calculation
+                            if (row["GradeValue"] != DBNull.Value && (string)row["Grade"] != "W") 
                             {
                                 gradeVal = Convert.ToSingle(row["GradeValue"]);
                                 gradeHrs = Convert.ToSingle(row["Hours"]);
@@ -430,5 +443,7 @@ namespace StudentDB
             else
                 cbTerm.SelectedIndex = 3;
         }
+
+        
     }
 }

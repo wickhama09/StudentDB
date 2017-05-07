@@ -429,6 +429,7 @@
             this.Name = "frmCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Viewer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCourse_FormClosed);
             this.Load += new System.EventHandler(this.frmCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsDataSet)).EndInit();

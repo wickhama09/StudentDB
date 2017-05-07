@@ -1004,6 +1004,8 @@ namespace StudentDB
                 lstStudents.DisplayMember = "Name";
                 lstStudents.ValueMember = "Id";
                 lstStudents.DataSource = studentTable;
+                
+
             }
         }
 
